@@ -1,54 +1,136 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo - Casa do Queijo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #f4b648;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #f4b648;
+      font-size: 28px;
+      border-left: 5px solid #f4b648;
+      padding-left: 12px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    li:hover {
+      transform: translateX(6px);
+      background: rgba(244, 182, 72, 0.18);
+    }
+
+    .preco {
+      color: #f4b648;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      li {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-
+  <div class="container">
     <h1>Conheça nossos produtos!</h1>
 
-    <h2>Mais vendidos:</h2>
+    <h2>Mais vendidos</h2>
     <ul>
-        <li>Nozinho - R$ 35,00</li>
-        <li>Mussarela Palito - R$ 35,00</li>
-        <li>Queijo Prato/Reino - R$ 35,00</li>
-        <li>Provolone - R$ 35,00</li>
-        <li>Ricota - R$ 20,00</li>
-        <li>Kit Parmesão - R$ 45,00</li>
-        <li>Burrata Búfala - R$ 40,00</li>
-        <li>Queijo Desidratado - R$ 25,00</li>
+      <li><span>Nozinho</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Mussarela Palito</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Queijo Prato/Reino</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Provolone</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Ricota</span><span class="preco">R$ 20,00</span></li>
+      <li><span>Kit Parmesão</span><span class="preco">R$ 45,00</span></li>
+      <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
+      <li><span>Queijo Desidratado</span><span class="preco">R$ 25,00</span></li>
     </ul>
 
-    <h2>Todos os queijos:</h2>
+    <h2>Todos os queijos</h2>
     <ul>
-        <li>Mussarela Palito/Nozinho - R$ 35,00</li>
-        <li>Burrata Búfala - R$ 40,00</li>
-        <li>Bolinha de Queijo - R$ 35,00</li>
-        <li>Coalho - R$ 35,00</li>
-        <li>Minas Padrão/Mussarela Barra - R$ 35,00</li>
-        <li>Prato/Reino - R$ 35,00</li>
-        <li>Roquefort Mineiro - R$ 35,00</li>
-        <li>Desidratado - R$ 25,00</li>
-        <li>Provolone - R$ 35,00</li>
-        <li>Parmesão Capa Preta Redondo - R$ 45,00</li>
-        <li>Parmesão Capa Preta/Branca - R$ 38,00</li>
-        <li>Parmesão Fresco - R$ 35,00</li>
-        <li>Napolitano - R$ 35,00</li>
-        <li>Trufado - R$ 40,00</li>
-        <li>Canastra - R$ 65,00</li>
-        <li>Kit Parmesão - R$ 45,00</li>
-        <li>Requeijão Barra - R$ 35,00</li>
-        <li>Ricota - R$ 20,00</li>
-        <li>Trança - R$ 35,00</li>
-        <li>Antepasto - R$ 30,00</li>
+      <li><span>Mussarela Palito / Nozinho</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
+      <li><span>Bolinha de Queijo</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Coalho</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Minas Padrão / Mussarela Barra</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Prato / Reino</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Roquefort Mineiro</span><span class="preco">R$ 35,00</span></li>
+      <li><span>Desidratado</span><span class="preco">R$ 25,00</span></li>
+      <li><span>Canastra</span><span class="preco">R$ 65,00</span></li>
+      <li><span>Antepasto</span><span class="preco">R$ 30,00</span></li>
     </ul>
 
-    <h2>Outros Produtos:</h2>
+    <h2>Outros Produtos</h2>
     <ul>
-        <li>Geleia/Embutidos - R$ 22,00</li>
+      <li><span>Geleia / Embutidos</span><span class="preco">R$ 22,00</span></li>
     </ul>
-
+  </div>
 </body>
 </html>
