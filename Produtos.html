@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo - Casa do Queijo</title>
-  <style>
-    .voltar {
-  display: inline-block;
-  margin-bottom: 25px;
-  text-decoration: none;
-  color: #f4b648;
-  font-weight: bold;
-  font-size: 18px;
-}
 
-.voltar:hover {
-  text-decoration: underline;
-}
+  <meta name="description" content="Catálogo de produtos da Casa do Queijo com queijos artesanais, preços e produtos especiais." />
+
+  <title>Catálogo - Casa do Queijo</title>
+
+  <style>
+    :root {
+      --dourado: #f4b648;
+      --fundo-card: rgba(0, 0, 0, 0.60);
+      --branco: #ffffff;
+      --hover: rgba(244, 182, 72, 0.18);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -24,40 +23,95 @@
       font-family: Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=1600&q=80');
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url("https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=1600&q=80");
+
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: white;
+      color: var(--branco);
       min-height: 100vh;
       padding: 40px;
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--dourado);
+      color: black;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 10px;
     }
 
     .container {
       max-width: 1000px;
       margin: auto;
-      background: rgba(0, 0, 0, 0.55);
+      background: var(--fundo-card);
       padding: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
+      border-radius: 22px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     h1 {
-      text-align: center;
       font-size: 42px;
-      margin-bottom: 30px;
-      color: #f4b648;
+      color: var(--dourado);
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      color: #f1f1f1;
+      opacity: 0.9;
+    }
+
+    .voltar {
+      display: inline-block;
+      margin: 20px 0 30px;
+      text-decoration: none;
+      color: var(--dourado);
       font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .voltar:hover,
+    .voltar:focus {
+      text-decoration: underline;
+      outline: 2px solid var(--dourado);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    section {
+      margin-bottom: 35px;
     }
 
     h2 {
-      margin-top: 30px;
-      margin-bottom: 15px;
-      color: #f4b648;
+      margin-bottom: 18px;
+      color: var(--dourado);
       font-size: 28px;
-      border-left: 5px solid #f4b648;
+      border-left: 5px solid var(--dourado);
       padding-left: 12px;
     }
 
@@ -66,10 +120,10 @@
     }
 
     li {
-      background: rgba(255, 255, 255, 0.08);
-      margin-bottom: 12px;
-      padding: 15px 20px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 14px;
+      padding: 16px 20px;
+      border-radius: 14px;
       font-size: 18px;
       display: flex;
       justify-content: space-between;
@@ -79,12 +133,26 @@
 
     li:hover {
       transform: translateX(6px);
-      background: rgba(244, 182, 72, 0.18);
+      background: var(--hover);
+    }
+
+    li:focus-within {
+      outline: 2px solid var(--dourado);
     }
 
     .preco {
-      color: #f4b648;
+      color: var(--dourado);
       font-weight: bold;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 15px;
+      opacity: 0.9;
     }
 
     @media (max-width: 768px) {
@@ -100,50 +168,87 @@
         font-size: 32px;
       }
 
+      h2 {
+        font-size: 24px;
+      }
+
       li {
         font-size: 16px;
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
       }
+
+      .preco {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Conheça nossos produtos!</h1>
-    <a href="index.html" class="voltar">← Voltar para página inicial</a>
 
-    <h2>Mais vendidos</h2>
-    <ul>
-      <li><span>Nozinho</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Mussarela Palito</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Queijo Prato/Reino</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Provolone</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Ricota</span><span class="preco">R$ 20,00</span></li>
-      <li><span>Kit Parmesão</span><span class="preco">R$ 45,00</span></li>
-      <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
-      <li><span>Queijo Desidratado</span><span class="preco">R$ 25,00</span></li>
-    </ul>
+  <a href="#conteudo" class="skip-link">
+    Pular para o conteúdo principal
+  </a>
 
-    <h2>Todos os queijos</h2>
-    <ul>
-      <li><span>Mussarela Palito / Nozinho</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
-      <li><span>Bolinha de Queijo</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Coalho</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Minas Padrão / Mussarela Barra</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Prato / Reino</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Roquefort Mineiro</span><span class="preco">R$ 35,00</span></li>
-      <li><span>Desidratado</span><span class="preco">R$ 25,00</span></li>
-      <li><span>Canastra</span><span class="preco">R$ 65,00</span></li>
-      <li><span>Antepasto</span><span class="preco">R$ 30,00</span></li>
-    </ul>
+  <main class="container" id="conteudo">
 
-    <h2>Outros Produtos</h2>
-    <ul>
-      <li><span>Geleia / Embutidos</span><span class="preco">R$ 22,00</span></li>
-    </ul>
-  </div>
+    <header>
+      <h1>Casa do Queijo</h1>
+      <p class="subtitulo">
+        Conheça nossos produtos artesanais e sabores especiais
+      </p>
+    </header>
+
+    <a href="index.html" class="voltar" aria-label="Voltar para a página inicial">
+      ← Voltar para página inicial
+    </a>
+
+    <section aria-labelledby="mais-vendidos">
+      <h2 id="mais-vendidos">Mais vendidos</h2>
+
+      <ul>
+        <li><span>Nozinho</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Mussarela Palito</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Queijo Prato/Reino</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Provolone</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Ricota</span><span class="preco">R$ 20,00</span></li>
+        <li><span>Kit Parmesão</span><span class="preco">R$ 45,00</span></li>
+        <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
+        <li><span>Queijo Desidratado</span><span class="preco">R$ 25,00</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="todos-queijos">
+      <h2 id="todos-queijos">Todos os queijos</h2>
+
+      <ul>
+        <li><span>Mussarela Palito / Nozinho</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Burrata Búfala</span><span class="preco">R$ 40,00</span></li>
+        <li><span>Bolinha de Queijo</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Coalho</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Minas Padrão / Mussarela Barra</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Prato / Reino</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Roquefort Mineiro</span><span class="preco">R$ 35,00</span></li>
+        <li><span>Desidratado</span><span class="preco">R$ 25,00</span></li>
+        <li><span>Canastra</span><span class="preco">R$ 65,00</span></li>
+        <li><span>Antepasto</span><span class="preco">R$ 30,00</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="outros-produtos">
+      <h2 id="outros-produtos">Outros Produtos</h2>
+
+      <ul>
+        <li><span>Geleia / Embutidos</span><span class="preco">R$ 22,00</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2026 Casa do Queijo • Qualidade e tradição em cada sabor
+    </footer>
+
+  </main>
+
 </body>
 </html>
